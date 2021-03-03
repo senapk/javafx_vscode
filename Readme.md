@@ -42,7 +42,6 @@
 - Abra o projeto criado:
 
 ![](imgs/abrir_projeto.png)
-![](imgs/novo.png)
 - Abra o arquivo `src/App.java`
 - Se o java estiver configurado corretamente, você deverá conseguir rodar o `App.java` clicando no `run`.
 
