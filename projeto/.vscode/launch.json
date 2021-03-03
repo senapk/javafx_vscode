@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "projeto_9caccb5d"
+        },
+        {
+            "type": "java",
             "name": "Launch HelloFx",
             "request": "launch",
             "mainClass": "HelloFx",

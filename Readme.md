@@ -3,21 +3,18 @@
 <!--TOC_BEGIN-->
 - [Configurando o vscode](#configurando-o-vscode)
 - [Baixando o JavaFx](#baixando-o-javafx)
-- [Modo Fácil](#modo-fácil)
-- [Modo Manual](#modo-manual)
-    - [Criando o projeto](#criando-o-projeto)
-    - [Configurando o projeto](#configurando-o-projeto)
-    - [Executando](#executando)
+- [Criando o projeto](#criando-o-projeto)
+- [Configurando o projeto](#configurando-o-projeto)
+- [Executando](#executando)
 <!--TOC_END-->
 
 ## Configurando o vscode
 
-- Abra seu vscode e instale as seguintes extensões
+- Abra seu vscode e instale a seguinte extensão
   - Java Extension Pack
-  - Project Manager for java
 
 ## Baixando o JavaFx
-- Baixar biblioteca do javafx 11 em [gluonhq](https://gluonhq.com/products/javafx/)
+- Baixar biblioteca do javafx 11 em [gluonhq](https://gluonhq.com/products/javafx/).
 - Baixe o arquivo **JavaFX SDK** certo para seu SO.
 - **Não** é o arquivo **jmods**.
 
@@ -28,39 +25,28 @@
 - `/home/tiger/lib/javafx-sdk-11.0.2/lib`
 
 ![](imgs/pasta_lib.png)
+![](imgs/pasta_win.png)
 
-## Modo Fácil
-- Clone esse repositório
-```
-git clone https://github.com/senapk/javafx_vscode
-```
-- Esse repositório contém uma pasta **projeto** que já contém um projeto JavaFx já pré-configurado.
-- Copie a pasta lib do javafx para dentro da pasta **projeto** desse repositório.
-- Agora a pasta **projeto** tem 2 pastas: `src` e `lib` e o arquivo `Readme.md`
-- Abra a pasta o vscode **na pasta projeto**.
 
-![](imgs/easy.png)
-
-- Agora é só abrir o arquivo `HelloFx.java` e clicar na setinha `run`.
-- Se for criar outro arquivo com `main`, após executar, abra o arquivo `.vscode/launch.json` e adicione o parâmetro `vmArgs` que já está configurado para o arquivo `HelloFx.java`.
-
-## Modo Manual
-
-### Criando o projeto
+## Criando o projeto
 
 - Abra seu vscode
-- Control - Shift - P
+- Clique em na barra de Menu -> `View` -> `Command Palette`
 - Executar a opção `Java: Create Java Project`
 - Selecione `No build tools`
 - Selecione a pasta onde o projeto será criado.
 - Selecione o nome do projeto, no meu caso: `JavaFxHello`
 - O vscode já monta o projeto e abre uma nova instância na pasta correta.
 
-### Configurando o projeto
+## Configurando o projeto
 - Abra o projeto criado:
 
+![](imgs/abrir_projeto.png)
 ![](imgs/novo.png)
 - Abra o arquivo `src/App.java`
+- Se o java estiver configurado corretamente, você deverá conseguir rodar o `App.java` clicando no `run`.
+
+![](imgs/basic_run.png)
 - Espera o vscode carregar o plugin "Java Projects"
 
 ![](imgs/extensao.png)
@@ -105,7 +91,9 @@ public class HelloFx extends Application {
 
 ![](imgs/vermelho.png)
 
-- Clique no + ao lado de `Referenced Libraries` e selecione os arquivos `.jar` que estão na pasta onde colocamos o `javafx`
+- Clique em JAVA PROJECTS no canto inferior esquerdo e em + que ao lado de Referenced Libraries e selecione os arquivos .jar que estão na pasta onde colocamos o javafx.
+
+![](imgs/plus.png)
 
 ![](imgs/jars.png)
 
@@ -115,7 +103,7 @@ public class HelloFx extends Application {
 
 - Com isso, o vscode já sabe onde achar o javafx e o imports do código não aparecerão mais em vermelho.
 
-### Executando
+## Executando
 - Se tentar executar pelo botão `run` terá a seguinte mensagem: 
 
 ![](imgs/run_pre.png)
@@ -133,7 +121,6 @@ public class HelloFx extends Application {
 - Salve o arquivo e dê o `run` novamente o `HelloFx.java`. Ainda vai dar errado, mas irá criar automaticamente uma entrada *personalizada para o HelloFx* no arquivo `launch.json`.
 
 - Adicione a seguinte entrada `vmArgs` nela **substituindo** o caminho pelo caminho onde está sua pasta lib.
-- Observe que no Windows o path deve ser escrito com \\\\
 
 ```
 "vmArgs": "--module-path CAMINHO_DA_SUA_PASTA_LIB --add-modules javafx.controls,javafx.base,javafx.fxml,javafx.graphics,javafx.media,javafx.web",
@@ -143,7 +130,16 @@ public class HelloFx extends Application {
 ![](imgs/vmargs.png)
 ![](imgs/win.png)
 
-- Agora salva, executa e curte a janelinha:
+- Se estiver no Windows, você deve colocar a partição e usar \\\\ para separar as pastas. Evite espaços em branco no path. Por exemplo, seu path seria algo como:
+```
+C:\\Users\\lucas\\Documents\\javafxsdk11.0.2\\lib
+```
+- Se seu path tiver espaços em branco você precisará escrever assim:
+```
+\"C:\\Users\\lucas\\Area de trabalho\\javafx sdk11.0.2\\lib\"
+```
+
+- Agora salve, execute e curte a janelinha:
 
 ![](imgs/janela.png)
 
