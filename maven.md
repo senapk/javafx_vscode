@@ -1,0 +1,18 @@
+- Instale as seguintes extensões do vscode
+    - Java Extension Pack
+    - Maven for Java
+    - SceneBuilder extension for Visual Studio Code
+
+- View -> Command Palette -> Java: Create Java Project -> Maven
+- More -> java-archetype-fxml from openjfx
+- Seleciona pasta onde quer criar o projeto
+    - groupId: ufc
+    - artifactId: projeto_javafx
+    - pode dar enter no resto sem preencher
+- Entre na pasta projeto_javafx e abra o vscode nessa pasta
+- O vscode vai identificar o projeto, deixe-o importar o projeto
+- Command Palette -> Tasks: Run build task -> configure -> create
+- Onde tem `verify`, troque por `run`
+- No comando troque por `mvn clean javafx:run`
+- Agora pra executar, basta rodar com o "Run Build task", no meu caso `control-shift-B` e escolher run.
+- Palette Comand -> Configure Scene Build Path -> selecione o executável do SceneBuilder
