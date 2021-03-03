@@ -16,3 +16,4 @@
 - No comando troque por `mvn clean javafx:run`
 - Agora pra executar, basta rodar com o "Run Build task", no meu caso `control-shift-B` e escolher run.
 - Palette Comand -> Configure Scene Build Path -> selecione o executável do SceneBuilder
+- Para abrir um arquivo fxml, basta clicar com o botão direito e escolher abrir com o SceneBuilder.
