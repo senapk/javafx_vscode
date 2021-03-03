@@ -1,19 +1,19 @@
 # Como configurar o javavx no vscode
 
 <!--TOC_BEGIN-->
-- [Configurando o vscode](#configurando-o-vscode)
-- [Baixando o JavaFx](#baixando-o-javafx)
-- [Criando o projeto](#criando-o-projeto)
-- [Configurando o projeto](#configurando-o-projeto)
-- [Executando](#executando)
+- [01. Configurando o vscode](#01-configurando-o-vscode)
+- [02. Baixando o JavaFx](#02-baixando-o-javafx)
+- [03. Criando o projeto](#03-criando-o-projeto)
+- [04. Configurando o projeto](#04-configurando-o-projeto)
+- [05. Executando](#05-executando)
 <!--TOC_END-->
 
-## Configurando o vscode
+## 01. Configurando o vscode
 
 - Abra seu vscode e instale a seguinte extensão
   - Java Extension Pack
 
-## Baixando o JavaFx
+## 02. Baixando o JavaFx
 - Baixar biblioteca do javafx 11 em [gluonhq](https://gluonhq.com/products/javafx/).
 - Baixe o arquivo **JavaFX SDK** certo para seu SO.
 - **Não** é o arquivo **jmods**.
@@ -21,32 +21,32 @@
 ![](imgs/download.png)
 
 - Após baixar, descompacte em alguma pasta e **anote** o path da pasta **lib**.
-- No meu caso, o path para pasta lib ficou como
+- No meu caso, o path para pasta lib ficou como:
 - `/home/tiger/lib/javafx-sdk-11.0.2/lib`
 
 ![](imgs/pasta_lib.png)
 ![](imgs/pasta_win.png)
 
 
-## Criando o projeto
+## 03. Criando o projeto
 
 - Abra seu vscode
-- Clique em na barra de Menu -> `View` -> `Command Palette`
-- Executar a opção `Java: Create Java Project`
-- Selecione `No build tools`
+- Clique em na barra de Menu -> `View` -> `Command Palette`.
+- Executar a opção `Java: Create Java Project`.
+- Selecione `No build tools`.
 - Selecione a pasta onde o projeto será criado.
-- Selecione o nome do projeto, no meu caso: `JavaFxHello`
+- Selecione o nome do projeto, no meu caso: `JavaFxHello`.
 - O vscode já monta o projeto e abre uma nova instância na pasta correta.
 
-## Configurando o projeto
-- Abra o projeto criado:
+## 04. Configurando o projeto
+- Abra o projeto criado.
 
 ![](imgs/abrir_projeto.png)
 - Abra o arquivo `src/App.java`
 - Se o java estiver configurado corretamente, você deverá conseguir rodar o `App.java` clicando no `run`.
 
 ![](imgs/basic_run.png)
-- Espera o vscode carregar o plugin "Java Projects"
+- Espere o vscode carregar o plugin "Java Projects".
 
 ![](imgs/extensao.png)
 
@@ -90,24 +90,24 @@ public class HelloFx extends Application {
 
 ![](imgs/vermelho.png)
 
-- Clique em JAVA PROJECTS no canto inferior esquerdo e em + que ao lado de Referenced Libraries e selecione os arquivos .jar que estão na pasta onde colocamos o javafx.
+- Clique em `JAVA PROJECTS` no canto inferior esquerdo e em `+` que fica ao lado de `Referenced Libraries` e selecione os arquivos .jar que estão na pasta onde colocamos o javafx.
 
 ![](imgs/plus.png)
 
 ![](imgs/jars.png)
 
-- Isso deverá criar um arquivo `.vscode/settings.json` com o seguinte conteúdo.
+- Isso deverá criar um arquivo `.vscode/settings.json` referenciando todos os .jar que você adicionou.
 
 ![](imgs/libs_instaladas.png)
 
-- Com isso, o vscode já sabe onde achar o javafx e o imports do código não aparecerão mais em vermelho.
+- Com isso, o vscode já sabe onde achar o javafx e você poderá conferir imports do código não aparecerão mais em vermelho e o autocomplete funciona corretamente.
 
-## Executando
-- Se tentar executar pelo botão `run` terá a seguinte mensagem: 
+## 05. Executando
+- Se tentar executar pelo botão `run`, terá **AINDA** a seguinte mensagem: 
 
 ![](imgs/run_pre.png)
 
-- Isso acontece porque a execução de um projeto javafx exige que os módulos sejam passado por parâmetro para o `java`.
+- Isso acontece porque a execução de um projeto javafx exige que os módulos sejam passado por parâmetro para o comando `java`.
 
 - Crie e salve o arquivo `.vscode/launch.json`.
 
@@ -117,14 +117,13 @@ public class HelloFx extends Application {
 
 ![](imgs/setup_launch.png)
 ![](imgs/setup_launch2.png)
-- Salve o arquivo e dê o `run` novamente o `HelloFx.java`. Ainda vai dar errado, mas irá criar automaticamente uma entrada *personalizada para o HelloFx* no arquivo `launch.json`.
+- Salve o arquivo e dê o `run` novamente no `HelloFx.java`. Ainda vai dar errado, mas irá criar automaticamente uma entrada **personalizada para o HelloFx** no arquivo `launch.json`.
 
-- Adicione a seguinte entrada `vmArgs` nela **substituindo** o caminho pelo caminho onde está sua pasta lib.
+- Adicione a seguinte entrada `vmArgs` nessa entrada **substituindo** CAMINHO_DO_JAVAFX_LIB pelo caminho onde está sua pasta `lib` que pegamos no passo 02.
 
 ```
-"vmArgs": "--module-path CAMINHO_DA_SUA_PASTA_LIB --add-modules javafx.controls,javafx.base,javafx.fxml,javafx.graphics,javafx.media,javafx.web",
+"vmArgs": "--module-path CAMINHO_DO_JAVAFX_LIB --add-modules javafx.controls,javafx.base,javafx.fxml,javafx.graphics,javafx.media,javafx.web",
 ```
-
 
 ![](imgs/vmargs.png)
 ![](imgs/win.png)
@@ -133,7 +132,7 @@ public class HelloFx extends Application {
 ```
 C:\\Users\\lucas\\Documents\\javafxsdk11.0.2\\lib
 ```
-- Se seu path tiver espaços em branco você precisará escrever assim:
+- Se seu path tiver espaços em branco você precisará escrever assim tanto no Windows como no Linux:
 ```
 \"C:\\Users\\lucas\\Area de trabalho\\javafx sdk11.0.2\\lib\"
 ```
